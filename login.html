@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Gaegu&display=swap&subset=korean');
+  </style>
+  <style>
+    fieldset{
+      font-family: 'Gaegu', cursive;
+      font-size : 1.2em;
+      margin : 30px;
+      text-align : center;
+      width : 300px;
+      height : 300px;
+      border : 2px solid rgb(148,130,208);
+    }
+    button
+    {
+      border: 1px solid rgb(148,130,208);
+      background-color: white;
+    }
+    p{
+      float : right;
+    }
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>Login !</legend>
+    <p>ID : <input type="text" id="findName" name="id" placeholder="E-mail"></p><br><br>
+    <p>PASSWORD : <input type="password" id="findPassword" name="password" class="login" placeholder="password"></p><br><br>
+    <button type="submit" onclick="Save()" id="save">Save</button>
+    <br><br>↓↓아직 아이디가 없으시다면↓↓<br><br>
+    <button type="Sign Up" onclick="window.open('Sign_up.html','mywin','width=500,height=500')">Sign Up</button>
+  </fieldset>
+  <script>
+    var findName = document.getElementById("findName");
+    var findPassword = document.getElementById("findPassword");
+
+    function Save(){
+      if(!window.sessionStorage){
+        alert("세션 스토리지를 지원하지 않습니다.");
+        return;
+      }
+      var check1 = sessionStorage.getItem(findName.value,findPassword.value);
+
+      if(check1==null)
+        alert("잘못된 정보입니다.");
+      else
+        alert ("로그인 되었습니다.");
+      window.location.href="fromis_9_main.html";
+    }
+  </script>
+</body>
+</html>
