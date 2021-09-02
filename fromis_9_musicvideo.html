@@ -1,92 +1,21 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fromis_9 Fan Page | MusicVideo</title>
   <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css?family=Gamja+Flower|Lobster&display=swap&subset=korean');
+    @import url('https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean');
   </style>
-  <style>
-
-    * { margin : 0; }
-  	p{
-  		font-family: 'Lobster', cursive;
-  		margin : 40px;
-  		font-size : 2.5em;
-  		color : rgb(148,130,208);
-  	}
-  	nav{
-  		position : fixed;
-  		height : 100%;
-  		width : 20%;
-  		float : left;
-  		background-color : #eeedf6;
-  	}
-  	#ul li{
-  		 list-style: none;
-  		 cursor:pointer;
-  	 }
-  	#ul li:hover{
-  		transform : translate(20px);
-  	}
-  	#ul li{
-  		color : rgb(148,130,208);
-  		font-size : 17px;
-  	}
-    section{
-      float : right;
-      width : 80%;
-      height : 100%;
-    }
-    div{
-      text-align : center;
-      width : 800px;
-      height : 500px;
-      position : relative;
-      right : -60px;
-      bottom : 300px;
-      margin : 200px;
-    }
-    video{
-      border : 10px solid rgb(148,130,208);
-      border-radius : 30px;
-      width : 800px;
-      height : 455px;
-      position : absoulte;
-    }
-    .photo{
-      position : absolute;
-    }
-    .cover{
-      border : 10px solid rgb(148,130,208);
-      border-radius : 30px;
-      width : 800px;
-      height : 500px;
-      position : relative;
-      z-index : 1;
-      top : 620px;
-    }
-    .playbutton{
-      position : relative;
-      width : 100px;
-      height : 100px;
-      top : 460px;
-      left : 350px;
-      background : #00ff0000;
-      border : 0;
-      z-index : 3;
-    }
-    .name{
-      font-family: 'Gamja Flower', cursive;
-    }
-  </style>
-
+  <link rel="stylesheet" href="style-musicvideo.css">
+  <script src="script-musicvideo.js" defer></script>
 </head>
 <body>
 	<nav>
-		<p>
-			Fromis_9
-		</p>
-
+		<p>Fromis_9</p>
     <ul id="ul">
 			<li onclick="window.open('fromis_9_main.html','mywin')">ㅡ Home</li><br>
 			<li onclick="window.open('fromis_9_album.html','mywin')">ㅡ Album</li><br>
@@ -94,134 +23,50 @@
 		</ul>
 	</nav>
   <section>
-  <div>
-    <div class="photo">
-    <img src="Musicvideo/cover/fun_cover.png" id="cover1" class="cover">
-    <img src="Musicvideo/playbutton.png" id="button1" class="playbutton" onclick="play1()">
-    <video class="video" id="video1" src="Musicvideo/Fun.mp4"></video>
-    <p class="name">
-    FUN!<br>
-    [FUN FACTORY]</p>
+    <div>
+      <div class="photo">
+        <img src="Musicvideo/cover/fun_cover.png" id="cover1" class="cover">
+        <img src="Musicvideo/playbutton.png" id="button1" class="playbutton" onclick="play1()">
+        <video class="video" id="video1" src="Musicvideo/Fun.mp4"></video>
+        <p class="name">
+          FUN!<br>
+          [FUN FACTORY]
+        </p>
+      </div>
     </div>
-  </div>
-  <div>
-    <div class="photo">
-    <img src="Musicvideo/cover/LoveBomb_cover.png" id="cover2" class="cover">
-    <img src="Musicvideo/playbutton.png" id="button2" class="playbutton" onclick="play2()">
-    <video class="video" id="video2" src="Musicvideo/Lovebomb.mp4"></video>
-    <p class="name">
-    LoveBomb<br>
-    [From.9]</p>
+    <div>
+      <div class="photo">
+        <img src="Musicvideo/cover/LoveBomb_cover.png" id="cover2" class="cover">
+        <img src="Musicvideo/playbutton.png" id="button2" class="playbutton" onclick="play2()">
+        <video class="video" id="video2" src="Musicvideo/Lovebomb.mp4"></video>
+        <p class="name">
+          LoveBomb<br>
+          [From.9]
+        </p>
+      </div>
     </div>
-  </div>
-  <div>
-    <div class="photo">
-    <img src="Musicvideo/cover/dkdk_cover.png" id="cover3" class="cover">
-    <img src="Musicvideo/playbutton.png" id="button3" class="playbutton" onclick="play3()">
-    <video class="video" id="video3" src="Musicvideo/dkdk.mp4"></video>
-    <p class="name">
-    두근두근(DKDK)<br>
-    [To.Day]</p>
+    <div>
+      <div class="photo">
+        <img src="Musicvideo/cover/dkdk_cover.png" id="cover3" class="cover">
+        <img src="Musicvideo/playbutton.png" id="button3" class="playbutton" onclick="play3()">
+        <video class="video" id="video3" src="Musicvideo/dkdk.mp4"></video>
+        <p class="name">
+          두근두근(DKDK)<br>
+          [To.Day]
+        </p>
+      </div>
     </div>
-  </div>
-  <div>
-    <div class="photo">
-    <img src="Musicvideo/cover/Toheart_cover.png" id="cover4" class="cover">
-    <img src="Musicvideo/playbutton.png" id="button4" class="playbutton" onclick="play4()">
-    <video class="video" id="video4" src="Musicvideo/Toheart.mp4"></video>
-    <p class="name">
-    To Heart<br>
-    [To Heart]</p>
+    <div>
+      <div class="photo">
+        <img src="Musicvideo/cover/Toheart_cover.png" id="cover4" class="cover">
+        <img src="Musicvideo/playbutton.png" id="button4" class="playbutton" onclick="play4()">
+        <video class="video" id="video4" src="Musicvideo/Toheart.mp4"></video>
+        <p class="name">
+          To Heart<br>
+          [To Heart]
+        </p>
+      </div>
     </div>
-  </div>
   </section>
-  <script>
-      var vid1 = document.getElementById("video1");
-      var vid2 = document.getElementById("video2");
-      var vid3 = document.getElementById("video3");
-      var vid4 = document.getElementById("video4");
-      var cover1 = document.getElementById("cover1");
-      var cover2 = document.getElementById("cover2");
-      var cover3 = document.getElementById("cover3");
-      var cover4 = document.getElementById("cover4");
-      var btn1 = document.getElementById("button1");
-      var btn2 = document.getElementById("button2");
-      var btn3 = document.getElementById("button3");
-      var btn4 = document.getElementById("button4");
-
-  function play1(){
-      if(vid1.paused){
-        vid1.play();
-        cover1.style.visibility = "hidden";
-        vid2.pause();
-        vid2.currentTime = 0;
-        cover2.style.visibility = "visible";
-        vid3.pause();
-        vid3.currentTime = 0;
-        cover3.style.visibility = "visible";
-        vid4.pause();
-        vid4.currentTime = 0;
-        cover4.style.visibility = "visible";
-      }
-      else{
-        vid1.pause();
-      }
-    }
-  function play2(){
-      if(vid2.paused){
-        vid2.play();
-        cover2.style.visibility = "hidden";
-        vid1.pause();
-        vid1.currentTime = 0;
-        cover1.style.visibility = "visible";
-        vid3.pause();
-        vid3.currentTime = 0;
-        cover3.style.visibility = "visible";
-        vid4.pause();
-        vid4.currentTime = 0;
-        cover4.style.visibility = "visible";
-      }
-      else{
-        vid2.pause();
-      }
-    }
-    function play3(){
-      if(vid3.paused){
-        vid3.play();
-        cover3.style.visibility = "hidden";
-        vid1.pause();
-        vid1.currentTime = 0;
-        cover1.style.visibility = "visible";
-        vid2.pause();
-        vid2.currentTime = 0;
-        cover2.style.visibility = "visible";
-        vid4.pause();
-        vid4.currentTime = 0;
-        cover4.style.visibility = "visible";
-      }
-      else{
-        vid3.pause();
-      }
-    }
-  function play4(){
-      if(vid4.paused){
-        vid4.play();
-        cover4.style.visibility = "hidden";
-        vid1.pause();
-        vid1.currentTime = 0;
-        cover1.style.visibility = "visible";
-        vid2.pause();
-        vid2.currentTime = 0;
-        cover2.style.visibility = "visible";
-        vid3.pause();
-        vid3.currentTime = 0;
-        cover3.style.visibility = "visible";
-      }
-      else{
-        vid4.pause();
-      }
-    }
-
-  </script>
-  </body>
-  </html>
+</body>
+</html>

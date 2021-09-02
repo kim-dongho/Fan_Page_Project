@@ -1,236 +1,49 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<style>
-	@import url('https://fonts.googleapis.com/css?family=Gamja+Flower|Lobster&display=swap&subset=korean');
-</style>
-<style>
-	* { margin : 0; }
-	p{
-		font-family: 'Lobster', cursive;
-		margin : 40px;
-		font-size : 2.5em;
-		color : rgb(148,130,208);;
-	}
-	nav{
-		position : fixed;
-		height : 100%;
-		width : 20%;
-		float : left;
-		background-color : #eeedf6;
-	}
-	#navigat li{
-		 list-style: none;
-		 cursor:pointer;
-	 }
-	#navigat li:hover{
-		transform : translate(20px);
-	}
-	#navigat li{
-		color : rgb(148,130,208);
-		font-size : 17px;
-	}
-	#playlist{
-		list-style : none;
-	}
-	#playlist li a{
-		color : black;
-		text-decoration : none;
-	}
-	#playlist .current-song a{
-		color : blue;
-	}
-	.section img{
-		width : 320px;
-		height : 400px;
-		border : 1px solid white;
-		border-radius : 50px;
-		margin : 40px;
-	}
-	section{
-		height : 100%;
-		width : 80%;
-		float : right;
-	}
-	#commentDiv{
-		border-radius : 30px;
-		postition : absolute;
-		font-family: 'Gamja Flower', cursive;
-		font-size : 17px;
-		color : #2f4f4f;
-	}
-	fieldset{
-		position : absolute;
-		border : 2px solid rgb(148,130,208);
-		width : 200px;
-		height : 250px;
-		border-radius : 20px;
-		margin : 20px;
-		color : rgb(148,130,208);
-		text-align: center;
-		font-size : 25px;
-	}
-
-	#div{
-		text-align: initial;
-	}
-
-	#audioPlayer{
-		width : 200px;
-		height : 50px;
-	}
-
-	#playlist li a{
-		font-family: 'Gamja Flower', cursive;
-		font-size : 20px;
-		color : black;
-	}
-
-	#login{
-		width : 90px;
-		height : 50px;
-		position : relative;
-		top : 350px;
-		left : 30px;
-		margin : 10px;
-		background: transparent;
-		border : 2px solid rgb(148,130,208);
-		text-align : center;
-	}
-	#signup{
-		width : 90px;
-		height : 50px;
-		position : relative;
-		top : 350px;
-		left : 30px;
-		margin : 10px;
-		background: transparent;
-		border : 2px solid rgb(148,130,208);
-		text-align : center;
-	}
-
-</style>
-<script>
-var text=["<br>이름 : 이새롬<br><br>혈액형 : B형<br><br>생년월일 : 1997년 1월 7일<br><br>포지션 : 리더,서브보컬<br>",
-				"<br>이름 : 송하영<br><br>혈액형 : A형<br><br>생년월일 : 1997년 9월 29일<br><br>포지션 : 리드보컬,메인댄서<br>",
-				"<br>이름 : 장규리<br><br>혈액형 : B형<br><br>생년월일 : 1997년 12월 27일<br><br>포지션 : 리더,리드보컬<br>",
-				"<br>이름 : 박지원<br><br>혈액형 : A형<br><br>생년월일 : 1998년 3월 20일<br><br>포지션 : 메인보컬<br>",
-				"<br>이름 : 노지선<br><br>혈액형 : B형<br><br>생년월일 : 1998년 11월 23일<br><br>포지션 : 센터,서브보컬<br>",
-				"<br>이름 : 이서연<br><br>혈액형 : A형<br><br>생년월일 : 2000년 1월 22일<br><br>포지션 : 메인래퍼,서브보컬<br>",
-				"<br>이름 : 이채연<br><br>혈액형 : B형<br><br>생년월일 : 2000년 5월 14일<br><br>포지션 : 리드래퍼,메인댄서<br>",
-				"<br>이름 : 이나경<br><br>혈액형 : A형<br><br>생년월일 : 2000년 6월 1일<br><br>포지션 : 리드댄서,서브보컬<br>",
-				"<br>이름 : 백지헌<br><br>혈액형 : B형<br><br>생년월일 : 2003년 4월 17일<br><br>포지션 : 서브보컬<br>",];
-var commentDiv;
-
-function init() {
-	commentDiv = document.getElementById("commentDiv");
-
-	var imgArray = document.getElementsByTagName("img");
-	for(i=0; i < imgArray.length; i++) {
-			imgArray[i].addEventListener("mouseover", over, false);
-			imgArray[i].addEventListener("mouseout", hideCommentDiv, false);
-	}
-}
-
-function over(e) {
-	var n=0;
-	switch(e.target.id) {
-			case "0" : n = 0; break;
-			case "1" : n = 1; break;
-			case "2" : n = 2; break;
-			case "3" : n = 3; break;
-			case "4" : n = 4; break;
-			case "5" : n = 5; break;
-			case "6" : n = 6; break;
-			case "7" : n = 7; break;
-			case "8" : n = 8; break;
-	}
-	setCommentDiv(text[n], e);
-}
-
-function setCommentDiv(comment, e) {
-	commentDiv.innerHTML = comment;
-	commentDiv.style.left = e.clientX + "px";
-	commentDiv.style.top = e.clientY + "px";
-	commentDiv.style.position = "fixed";
-	commentDiv.style.background = "white";
-	commentDiv.style.visibility = "visible";
-	commentDiv.style.border = "2px solid pink";
-	commentDiv.style.width = "220px";
-	commentDiv.style.height = "200px";
-}
-
-function hideCommentDiv() {
-	commentDiv.style.visibility = "hidden";
-}
-</script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fromis_9 Fan Page | Main</title>
+  <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Gamja+Flower|Lobster&display=swap&subset=korean');
+    @import url('https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean');
+  </style>
+  <link rel="stylesheet" href="style-main.css">
+  <script src="script-main.js" defer></script>
 </head>
-
 <body onload="init()">
-	<nav>
-		<p>
-			Fromis_9
-		</p>
-
-		<ul id="navigat">
-			<li onclick="window.open('fromis_9_main.html','mywin')">ㅡ Home</li><br>
-			<li onclick="window.open('fromis_9_album.html','mywin')">ㅡ Album</li><br>
-			<li onclick="window.open('fromis_9_musicvideo.html','mywin')">ㅡ Music Video</li><br>
-		</ul>
-
-<fieldset>
-	<legend>
-	Music Player
-	</legend>
-		<div id="div">
-			<audio src="" controls id="audioPlayer"></audio>
-
+  <nav>
+	<p>Fromis_9</p>
+	<ul id="navigat">
+	  <li onclick="window.open('fromis_9_main.html','mywin')">ㅡ Home</li><br>
+	  <li onclick="window.open('fromis_9_album.html','mywin')">ㅡ Album</li><br>
+	  <li onclick="window.open('fromis_9_musicvideo.html','mywin')">ㅡ Music Video</li><br>
+	</ul>
+	<fieldset>
+	  <legend>Music Player</legend>
+	  <div id="div">
+		<audio src="" controls id="audioPlayer"></audio>
 		<ul id="playlist">
-			<li class="current-song" id="S1"><a href="main/PlayList/Fun.mp3">Fun</a></li>
-			<li><a href="main/PlayList/LoveBomb.mp3" id="S2">LoveBomb</a></li>
-			<li><a href="main/PlayList/ToHeart.mp3" id="S3">ToHeart</a></li>
-			<li><a href="main/PlayList/DKDK.mp3" id="S4">DKDK</a></li>
-			<li><a href="main/PlayList/GlassShoes.mp3" id="S5">GlassShoes</a></li>
+		  <li class="current-song" id="S1"><a href="main/PlayList/Fun.mp3">Fun</a></li>
+		  <li><a href="main/PlayList/LoveBomb.mp3" id="S2">LoveBomb</a></li>
+		  <li><a href="main/PlayList/ToHeart.mp3" id="S3">ToHeart</a></li>
+		  <li><a href="main/PlayList/DKDK.mp3" id="S4">DKDK</a></li>
+		  <li><a href="main/PlayList/GlassShoes.mp3" id="S5">GlassShoes</a></li>
 		</ul>
-	</div>
-</fieldset>
+	  </div>
+	</fieldset>
 	<div>
-		<input type="button" id="login" value="Login" onclick="window.open('login.html','mywin')">
-		<input type="button" id="signup"value="Sign Up" onclick="window.open('Sign_up.html','mywin')">
+	  <input type="button" id="login" value="Login" onclick="window.open('login.html','mywin')">
+	  <input type="button" id="signup"value="Sign Up" onclick="window.open('Sign_up.html','mywin')">
 	</div>
-	</nav>
-	<section class="section">
-		<img src="main/saerom.png" id="0"><img src="main/hayoung.png" id="1"><img src="main/gyuri.png" id="2"><br>
-		<img src="main/jiwon.png" id="3"><img src="main/jisun.png" id="4"><img src="main/seoyeon.png" id="5"><br>
-		<img src="main/chaeyoung.png" id="6"><img src="main/nagyung.png" id="7"><img src="main/jiheon.png" id="8">
-
-		<div id="commentDiv" style="position:absolute"></div>
-	</section>
-	<script>
-		audioPlayer();
-		function audioPlayer(){
-			var currentSong = 0;
-				$("#audioPlayer")[0].src = $("#playlist li a")[0];
-				$("#playlist li a").click(function(e){
-					e.preventDefault();
-					$("#audioPlayer")[0].src = this;
-					$("#audioPlayer")[0].play;
-					$("#playlist li").removeClass("current-song");
-					currentSong = $(this).parent().index();
-					$(this).parent().addClass("current-song");
-				});
-
-				$("#audioPlayer")[0].addEventListener("ended", function(){
-					currentSong++;
-					if(currentSong == $("#playlist li a").length)
-						currentSong = 0;
-						$("#playlist li").removeClass("current-song");
-						$("#playlist li:eq("+currentSong+")").addClass("current-song");
-						$("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
-						$("#audioPlayer")[0].play();
-				});
-		};
-	</script>
+  </nav>
+  <section class="section">
+	<img src="main/saerom.png" id="0"><img src="main/hayoung.png" id="1"><img src="main/gyuri.png" id="2"><br>
+	<img src="main/jiwon.png" id="3"><img src="main/jisun.png" id="4"><img src="main/seoyeon.png" id="5"><br>
+	<img src="main/chaeyoung.png" id="6"><img src="main/nagyung.png" id="7"><img src="main/jiheon.png" id="8">
+	<div id="commentDiv" style="position:absolute"></div>
+  </section>
 </body>
 </html>
